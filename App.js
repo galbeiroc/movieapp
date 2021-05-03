@@ -3,6 +3,7 @@ import { Text } from 'react-native';
 
 import Home from './src/screens/container/home';
 import Header from './src/sections/components/header';
+import SuggestionsList from './src/videos/container/SuggestionsList';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Text>Buscador</Text>
       <Text>Categorias</Text>
       <Text>Sugerencias</Text>
+      <SuggestionsList />
     </Home>
   )
 };
