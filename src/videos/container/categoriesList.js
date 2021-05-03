@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 
+import Layout from '../components/categoryListLayout';
 import Empty from '../components/empty';
-import Separator from '../components/verticalSeparator';
+import Separator from '../../sections/components/horizontalSeparator';
 import Suggestion from '../components/suggestion';
 
 function CategoriesList({ list }) {
@@ -21,7 +22,7 @@ function CategoriesList({ list }) {
   };
 
   return (
-    <>
+    <Layout title="Sugerencias">
       <FlatList
         horizontal
         keyExtractor={keyExtractor}
@@ -31,7 +32,7 @@ function CategoriesList({ list }) {
         renderItem={renderItem}
         contentContainerStyle={{ flexGrow: 1, paddingBottom: 5 }}
       />
-    </>
+    </Layout>
   )
 }
 

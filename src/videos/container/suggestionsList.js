@@ -3,7 +3,7 @@ import { FlatList } from 'react-native';
 
 import Layout from '../components/suggestionListLayout';
 import Empty from '../components/empty';
-import Separator from '../components/verticalSeparator';
+import Separator from '../../sections/components/verticalSeparator';
 import Suggestion from '../components/suggestion';
 
 function SuggestionsList({list}) {
