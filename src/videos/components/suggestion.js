@@ -7,17 +7,17 @@ function Suggestion(props) {
       <View style={styles.left}>
         <Image 
           style={styles.cover}
-          source={require('../../../assets/movie-logo.png')}
+          source={{ uri: props.medium_cover_image}}
         />
         <View style={styles.genreContent}>
-          <Text style={styles.genreText}>Action</Text>
+          <Text style={styles.genreText}>{props.genres[0]}</Text>
         </View>
       </View>
 
       <View style={styles.right}>
-        <Text style={styles.title}>Avengers</Text>
-        <Text style={styles.year}>2007</Text>
-        <Text style={styles.rating}>5 Stars</Text>
+        <Text style={styles.title}>{props.title}</Text>
+        <Text style={styles.year}>{props.year}</Text>
+        <Text style={styles.rating}>{props.rating}</Text>
       </View>
     </View>
   )
@@ -36,10 +36,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   cover: {
-    height: 100,
-    width: 110,
+    height: 150,
+    width: 100,
     resizeMode: 'contain',
-    marginTop: 15,
   },
   genreContent: {
     position: 'absolute',
@@ -52,7 +51,6 @@ const styles = StyleSheet.create({
   genreText: {
     color: 'white',
     fontSize: 11,
-
   },
   title: {
     fontSize: 18,
