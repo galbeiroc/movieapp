@@ -1,11 +1,13 @@
 import React from 'react';
 import { Text } from 'react-native';
 
-import Home from './src/screens/container/home'
+import Home from './src/screens/container/home';
+import Header from './src/sections/components/header';
+
 function App() {
   return (
     <Home>
-      <Text>Header</Text>
+      <Header/>
       <Text>Buscador</Text>
       <Text>Categorias</Text>
       <Text>Sugerencias</Text>
