@@ -1,32 +1,16 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Image
-} from 'react-native';
+import { Text } from 'react-native';
 
+import Home from './src/screens/container/home'
 function App() {
   return (
-    <SafeAreaView>
-      <ScrollView >
-        <View style={styles.container}>
-          <Image source={require('./assets/movie-logo.png')} style={{ width: 100, height: 100 }} />
-          <Text>Hola Mundo</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
+    <Home>
+      <Text>Header</Text>
+      <Text>Buscador</Text>
+      <Text>Categorias</Text>
+      <Text>Sugerencias</Text>
+    </Home>
+  )
 };
-
-const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
 
 export default App;
