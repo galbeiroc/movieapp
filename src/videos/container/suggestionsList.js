@@ -4,6 +4,7 @@ import { FlatList, Text } from 'react-native';
 import Layout from '../components/suggestionListLayout';
 import Empty from '../components/empty';
 import Separator from '../components/verticalSeparator';
+import Suggestion from '../components/suggestion';
 
 function SuggestionsList() {
   const list = [
@@ -17,13 +18,17 @@ function SuggestionsList() {
     }
   ];
 
+  function renderItem({ item }) {
+    return <Suggestion {...item} />
+  };
+
   function renderEmpty() {
     return <Empty text="There is not suggestions :(" />
   };
 
   function itemSeparator() {
     return <Separator />
-  }
+  };
 
   return (
     <Layout title="Recomendado para ti">
@@ -31,7 +36,7 @@ function SuggestionsList() {
         data={list}
         ListEmptyComponent={renderEmpty}
         ItemSeparatorComponent={itemSeparator}
-        renderItem={({ item }) => <Text>{item.title}</Text>}
+        renderItem={renderItem}
       />
     </Layout>
 )
