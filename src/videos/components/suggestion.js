@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, View, Text, StyleSheet } from 'react-native';
 
 function Suggestion(props) {
+  const genres = props.genres[0] || 'Action'
   return (
     <View style={styles.container}>
       <View style={styles.left}>
@@ -10,7 +11,7 @@ function Suggestion(props) {
           source={{ uri: props.medium_cover_image}}
         />
         <View style={styles.genreContent}>
-          <Text style={styles.genreText}>{props.genres[0]}</Text>
+          <Text style={styles.genreText}>{genres}</Text>
         </View>
       </View>
 

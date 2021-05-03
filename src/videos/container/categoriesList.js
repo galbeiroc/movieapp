@@ -1,12 +1,11 @@
 import React from 'react';
-import { FlatList } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 
-import Layout from '../components/suggestionListLayout';
 import Empty from '../components/empty';
 import Separator from '../components/verticalSeparator';
 import Suggestion from '../components/suggestion';
 
-function SuggestionsList({list}) {
+function CategoriesList({ list }) {
   function renderItem({ item }) {
     return <Suggestion {...item} />
   };
@@ -22,16 +21,18 @@ function SuggestionsList({list}) {
   };
 
   return (
-    <Layout title="Recomendado para ti">
+    <>
       <FlatList
+        horizontal
         keyExtractor={keyExtractor}
         data={list}
         ListEmptyComponent={renderEmpty}
         ItemSeparatorComponent={itemSeparator}
         renderItem={renderItem}
+        contentContainerStyle={{ flexGrow: 1, paddingBottom: 5 }}
       />
-    </Layout>
-)
+    </>
+  )
 }
 
-export default SuggestionsList;
+export default CategoriesList;
