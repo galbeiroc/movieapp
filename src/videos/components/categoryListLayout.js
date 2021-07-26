@@ -1,16 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { Text, StyleSheet, ImageBackground } from 'react-native';
 
 function CategoryListLayout(props) {
   return (
     <ImageBackground
       source={require('../../../assets/backgronund.png')}
-      style={styles.container}
-    >
+      style={styles.container}>
       <Text style={styles.title}>{props.title}</Text>
       {props.children}
     </ImageBackground>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -20,10 +19,11 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#4c4c4c',
-    fontSize: 20,
+    fontSize: 25,
     marginBottom: 10,
     fontWeight: 'bold',
-  }
-})
+    marginLeft: 8,
+  },
+});
 
 export default CategoryListLayout;

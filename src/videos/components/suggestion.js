@@ -29,9 +29,6 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
   },
-  left: {
-
-  },
   right: {
     paddingLeft: 10,
     justifyContent: 'space-between'

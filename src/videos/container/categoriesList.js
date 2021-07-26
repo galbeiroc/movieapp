@@ -4,25 +4,25 @@ import { FlatList } from 'react-native';
 import Layout from '../components/categoryListLayout';
 import Empty from '../components/empty';
 import Separator from '../../sections/components/horizontalSeparator';
-import Suggestion from '../components/suggestion';
+import Category from '../components/category';
 
-function CategoriesList({ list }) {
-  function renderItem({ item }) {
-    return <Suggestion {...item} />
-  };
+function CategoriesList({list}) {
+  function renderItem({item}) {
+    return <Category {...item} />;
+  }
 
   const keyExtractor = item => item.id.toString();
 
   function renderEmpty() {
-    return <Empty text="There is not suggestions :(" />
-  };
+    return <Empty text="There is not Categories :(" />;
+  }
 
   function itemSeparator() {
-    return <Separator />
-  };
+    return <Separator />;
+  }
 
   return (
-    <Layout title="Sugerencias">
+    <Layout title="Categories">
       <FlatList
         horizontal
         keyExtractor={keyExtractor}
@@ -30,10 +30,9 @@ function CategoriesList({ list }) {
         ListEmptyComponent={renderEmpty}
         ItemSeparatorComponent={itemSeparator}
         renderItem={renderItem}
-        contentContainerStyle={{ flexGrow: 1, paddingBottom: 5 }}
       />
     </Layout>
-  )
+  );
 }
 
 export default CategoriesList;

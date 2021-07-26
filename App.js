@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text } from 'react-native';
 
 import Home from './src/screens/container/home';
@@ -6,7 +6,7 @@ import Header from './src/sections/components/header';
 import SuggestionsList from './src/videos/container/suggestionsList';
 import CategoriesList from './src/videos/container/categoriesList';
 
-import API from './utils/api'
+import API from './utils/api';
 
 function App() {
   const [suggestionList, setSuggestionList] = useState([]);
@@ -25,13 +25,13 @@ function App() {
 
   return (
     <Home>
-      <Header/>
+      <Header />
       <Text>Buscador</Text>
       <Text>Categorias</Text>
       <CategoriesList list={categoryList} />
       <SuggestionsList list={suggestionList} />
     </Home>
-  )
-};
+  );
+}
 
 export default App;
