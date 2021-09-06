@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
+import Video from 'react-native-video';
 
 import Home from './src/screens/container/home';
 import Header from './src/sections/components/header';
@@ -26,6 +27,24 @@ function App() {
   return (
     <Home>
       <Header />
+      <View 
+        style={{
+          flex: 1,
+          height: 100
+        }}
+      >
+        <Video 
+          source={{ uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4' }}
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right:0,
+            top: 0
+          }}
+          resizeMode='contain'
+        />
+      </View>
       <Text>Buscador</Text>
       <Text>Categorias</Text>
       <CategoriesList list={categoryList} />
