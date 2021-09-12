@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
 function LayoutVideo(props) {
   return (
@@ -7,6 +7,7 @@ function LayoutVideo(props) {
       <View style={styles.video}>
         {props.video}
       </View>
+      {props.loading && props.loader}
     </View>
   );
 }
