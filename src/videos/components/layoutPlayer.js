@@ -8,13 +8,14 @@ function LayoutVideo(props) {
         {props.video}
       </View>
       {props.loading && props.loader}
+      {props.controls}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: '28.25%'
+    padding: '24.25%'
   },
   video: {
     position: 'absolute',
