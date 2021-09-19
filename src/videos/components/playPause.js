@@ -5,7 +5,7 @@ function PlayPause(props) {
   console.log('props.paused', props.paused)
   return (
     <TouchableHighlight
-      onPress={() => console.log('rrr')}
+      onPress={() => props.onPress()}
       style={styles.container}
       underlayColor="red"
       hitSlop={{

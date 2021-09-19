@@ -21,7 +21,7 @@ function Player() {
   const playPause = () => {
     setPaused(!paused);
   }
-  console.log('----',paused)
+
   return (
     <Layout
       loading={loading}
