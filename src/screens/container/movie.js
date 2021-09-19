@@ -1,16 +1,25 @@
 import React from 'react';
-import Header from '../../sections/components/header';
+import { connect } from 'react-redux';
+import { setSelectedMovie } from '../../redux/actions/actions';
 
+import Close from '../../sections/components/close';
+import Header from '../../sections/components/header';
 import Player from '../../videos/container/player';
 import Layout from '../components/movieLayout';
 
-function Movie() {
+function Movie(props) {
+  function closeVideo() {
+    props.dispatch(setSelectedMovie(null))
+  };
+
   return (
     <Layout>
-      <Header />
+      <Header>
+        <Close onPress={closeVideo} />
+      </Header>
       <Player />
     </Layout>
   )
 }
 
-export default Movie;
+export default connect(null)(Movie);

@@ -7,14 +7,10 @@ import reducers from './reducers/videos';
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
+  blacklist: ['movie'], // movie will not be persisted
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers);
-
-const store = createStore(reducers, {
-  categoryList: [],
-  suggestionList: [],
-});
 
 export default () => {
   let store = createStore(persistedReducer);
