@@ -9,22 +9,17 @@ import CategoriesList from './src/videos/container/categoriesList';
 import Player from './src/videos/container/player';
 
 import store from './src/redux/store';
+import { setCategory, setSuggestion } from './src/redux/actions/actions'
 
 import API from './utils/api';
 
 function App() {
   async function getData() {
     const categoryList = await API.getMovies();
-    store.dispatch({
-      type: 'SET_CATEGORY_LIST',
-      payload: { categoryList }
-    })
+    store.dispatch(setCategory(categoryList))
 
     const suggestionList = await API.getSuggestions(10);
-    store.dispatch({
-      type: 'SET_MOVIES_LIST',
-      payload: { suggestionList }
-    });
+    store.dispatch(setSuggestion(suggestionList));
   }
 
   useEffect(() => {
