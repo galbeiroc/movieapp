@@ -38,9 +38,9 @@ function Player() {
       controls={
         <ControlLayout>
           <PlayPause onPress={playPause} paused={paused} />
-          <Text>progress bar | </Text>
+          <Text>| progress bar | </Text>
           <Text>time left | </Text>
-          <Text>fullscreen</Text>
+          <Text>fullscreen |</Text>
         </ControlLayout>
       }
       loader= {
