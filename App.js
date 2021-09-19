@@ -8,6 +8,7 @@ import Header from './src/sections/components/header';
 import SuggestionsList from './src/videos/container/suggestionsList';
 import CategoriesList from './src/videos/container/categoriesList';
 import Player from './src/videos/container/player';
+import Loading from './src/sections/components/loading';
 
 import configureStore from './src/redux/store';
 import { setCategory, setSuggestion } from './src/redux/actions/actions'
@@ -33,7 +34,7 @@ function App() {
     <Provider
       store={store}
     >
-      <PersistGate loading={<Text>Loading...</Text>} persistor={persistor}>
+      <PersistGate loading={<Loading />} persistor={persistor}>
         <Home>
           <Header />
           <View 
