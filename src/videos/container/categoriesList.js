@@ -6,6 +6,8 @@ import Empty from '../components/empty';
 import Separator from '../../sections/components/horizontalSeparator';
 import Category from '../components/category';
 
+import { connect } from 'react-redux';
+
 function CategoriesList({list}) {
   function renderItem({item}) {
     return <Category {...item} />;
@@ -35,4 +37,8 @@ function CategoriesList({list}) {
   );
 }
 
-export default CategoriesList;
+function mapStateToProps(state) {
+  debugger
+}
+
+export default connect(mapStateToProps)(CategoriesList);
