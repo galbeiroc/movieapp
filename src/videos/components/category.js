@@ -2,7 +2,6 @@ import React from 'react';
 import { ImageBackground, Text, StyleSheet } from 'react-native';
 
 function Category(props) {
-  console.log(props.genres[0])
   return (
     <ImageBackground
       style={styles.wrapper}

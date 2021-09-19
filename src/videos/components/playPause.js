@@ -2,7 +2,6 @@ import React from 'react';
 import { Text, TouchableHighlight, StyleSheet } from 'react-native'
 
 function PlayPause(props) {
-  console.log('props.paused', props.paused)
   return (
     <TouchableHighlight
       onPress={() => props.onPress()}

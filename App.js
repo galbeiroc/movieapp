@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Text, View } from 'react-native';
 import { Provider } from 'react-redux';
 
@@ -13,14 +13,18 @@ import store from './src/redux/store';
 import API from './utils/api';
 
 function App() {
-  const [suggestionList, setSuggestionList] = useState([]);
-  const [categoryList, setCategoryList] = useState([]);
-
   async function getData() {
-    const movies = await API.getSuggestions(10);
-    const categories = await API.getMovies();
-    setSuggestionList(movies);
-    setCategoryList(categories);
+    const categoryList = await API.getMovies();
+    store.dispatch({
+      type: 'SET_CATEGORY_LIST',
+      payload: { categoryList }
+    })
+
+    const suggestionList = await API.getSuggestions(10);
+    store.dispatch({
+      type: 'SET_MOVIES_LIST',
+      payload: { suggestionList }
+    });
   }
 
   useEffect(() => {
@@ -43,8 +47,8 @@ function App() {
         </View>
         <Text>Buscador</Text>
         <Text>Categorias</Text>
-        <CategoriesList list={categoryList} />
-        <SuggestionsList list={suggestionList} />
+        <CategoriesList />
+        <SuggestionsList />
       </Home>
     </Provider>
   );

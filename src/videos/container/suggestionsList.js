@@ -1,5 +1,6 @@
 import React from 'react';
 import { FlatList } from 'react-native';
+import { connect } from 'react-redux';
 
 import Layout from '../components/suggestionListLayout';
 import Empty from '../components/empty';
@@ -34,4 +35,10 @@ function SuggestionsList({list}) {
 )
 }
 
-export default SuggestionsList;
+function mapStateToProps(state) {
+  return {
+    list: state.suggestionList
+  }
+}
+
+export default connect(mapStateToProps)(SuggestionsList);
