@@ -1,8 +1,9 @@
-import { SET_CATEGORY_LIST, SET_SUGGESTION_LIST } from '../actions/types';
+import { SET_CATEGORY_LIST, SET_SUGGESTION_LIST, SET_SELECTED_MOVIE } from '../actions/types';
 
 const initalState = {
   categoryList: [],
   suggestionList: [],
+  movie: {},
 };
 
 function videos(state = initalState, action) {
@@ -12,6 +13,9 @@ function videos(state = initalState, action) {
     }
     case SET_CATEGORY_LIST: {
       return { ...state, categoryList: action.categoryList };
+    }
+    case SET_SELECTED_MOVIE: {
+      return { ...state, movie: action.movie }
     }
     default:
       return state

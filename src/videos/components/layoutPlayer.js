@@ -15,7 +15,7 @@ function LayoutVideo(props) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: '24.25%'
+    padding: '28.25%'
   },
   video: {
     position: 'absolute',

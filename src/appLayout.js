@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 import Home from './screens/container/home';
 import Header from './sections/components/header';
 import CategoriesList from './videos/container/categoriesList';
-import Player from './videos/container/player';
 import SuggestionsList from './videos/container/suggestionsList';
+
+import Movie from './screens/container/movie';
 
 import API from '../utils/api';
 import { setCategory, setSuggestion } from './redux/actions/actions';
@@ -24,10 +25,11 @@ function AppLayout(props) {
     getData();
   }, []);
 
+  if (props.movie) return <Movie />;
+
   return (
     <Home>
       <Header />
-      <Player />
       <Text>Buscador</Text>
       <CategoriesList />
       <SuggestionsList />
@@ -35,4 +37,10 @@ function AppLayout(props) {
   );
 }
 
-export default connect(null)(AppLayout);
+function mapStateToProps(state) {
+  return {
+    movie: state.movie,
+  }
+}
+
+export default connect(mapStateToProps)(AppLayout);

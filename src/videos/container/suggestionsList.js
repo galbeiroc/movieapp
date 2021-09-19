@@ -7,9 +7,16 @@ import Empty from '../components/empty';
 import Separator from '../../sections/components/verticalSeparator';
 import Suggestion from '../components/suggestion';
 
-function SuggestionsList({list}) {
+import { setSelectedMovie } from '../../redux/actions/actions';
+
+function SuggestionsList({ list, dispatch }) {
+  const viewMovie = (item) => {
+    console.log(item);
+    dispatch(setSelectedMovie(item))
+  };
+
   function renderItem({ item }) {
-    return <Suggestion {...item} />
+    return <Suggestion {...item} onPress={() => viewMovie(item)} />
   };
 
   const keyExtractor = item => item.id.toString();
