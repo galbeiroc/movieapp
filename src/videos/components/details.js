@@ -1,5 +1,29 @@
 import React from 'react';
-import { Image, Text, View, StyleSheet } from 'react-native';
+import { Image, Text, View, ScrollView, StyleSheet } from 'react-native';
+import { WebView } from 'react-native-webview';
+
+function makeHTML(code) {
+  return (`
+    <style>
+      .video {
+        position: relative;
+        padding-bottom: 56.25%;
+      }
+      iframe {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+    <div class="video">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/${code}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  `);
+}
 
 function Details(props) {
   return (
@@ -7,7 +31,7 @@ function Details(props) {
       <View style={styles.top}>
         <Text style={styles.title}>{props.title}</Text>
       </View>
-      <View style={styles.bottom}>
+      <ScrollView style={styles.bottom}>
         <View style={styles.details}>
           <Image
             style={styles.cover}
@@ -15,7 +39,12 @@ function Details(props) {
           />
           <Text style={styles.description}>{props.description_full}</Text>
         </View>
-      </View>
+        <View style={styles.trailer}>
+          <WebView
+            source={{ html: makeHTML(props.yt_trailer_code) }}
+          />
+        </View>
+      </ScrollView>
     </View>
   )
 };
@@ -52,8 +81,12 @@ const styles = StyleSheet.create({
   },
   details: {
     flexDirection: 'row',
-    marginBottom: 20,
+    marginBottom: 10,
   },
+  trailer: {
+    height: 200,
+    marginBottom: 20,
+  }
 });
 
 export default Details;
