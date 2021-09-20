@@ -4,6 +4,7 @@ import { setSelectedMovie } from '../../redux/actions/actions';
 
 import Close from '../../sections/components/close';
 import Header from '../../sections/components/header';
+import Details from '../../videos/components/details';
 import Player from '../../videos/container/player';
 import Layout from '../components/movieLayout';
 
@@ -18,8 +19,15 @@ function Movie(props) {
         <Close onPress={closeVideo} />
       </Header>
       <Player />
+      <Details {...props.movie} />
     </Layout>
   )
 }
 
-export default connect(null)(Movie);
+function mapStateToProps(state) {
+  return {
+    movie: state.movie,
+  }
+};
+
+export default connect(mapStateToProps)(Movie);
