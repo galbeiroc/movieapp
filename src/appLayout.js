@@ -24,7 +24,7 @@ function AppLayout(props) {
     getData();
   }, []);
 
-  if (props.movie) return <Movie />;
+  if (props.movie && Object.keys(props.movie).length !== 0) return <Movie />;
 
   return (
     <Home>

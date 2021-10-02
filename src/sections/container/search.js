@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { TextInput, StyleSheet } from 'react-native';
+import { connect } from 'react-redux';
 
-function Search() {
+import API from '../../../utils/api';
+import { setSelectedMovie } from '../../redux/actions/actions';
+
+function Search(props) {
   const [text, setText] = useState('');
-  function onSubmit() {
-    console.log('onSubmit');
+  async function onSubmit() {
+    const movie = await API.searchMovie(text);
+    props.dispatch(setSelectedMovie(movie[0]));
   }
 
   function onChange(text) {
@@ -31,4 +36,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Search;
+export default connect(null)(Search);
