@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react';
-import { Text } from 'react-native';
 import { connect } from 'react-redux';
 
 import Home from './screens/container/home';
 import Header from './sections/components/header';
 import CategoriesList from './videos/container/categoriesList';
 import SuggestionsList from './videos/container/suggestionsList';
-
+import Search from './sections/container/search';
 import Movie from './screens/container/movie';
 
 import API from '../utils/api';
@@ -30,7 +29,7 @@ function AppLayout(props) {
   return (
     <Home>
       <Header />
-      <Text>Buscador</Text>
+      <Search />
       <CategoriesList />
       <SuggestionsList />
     </Home>

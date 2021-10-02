@@ -11,7 +11,6 @@ import { setSelectedMovie } from '../../redux/actions/actions';
 
 function SuggestionsList({ list, dispatch }) {
   const viewMovie = (item) => {
-    console.log(item);
     dispatch(setSelectedMovie(item))
   };
 
